@@ -13,10 +13,13 @@ const wsHandler: WebSocketHandler<Rooms> = {
         if (message instanceof Uint8Array)
             message = intDecoder.decode(message);
 
-        // Format: (action).(room).(text?)
-        const [action, room, ...text] = message.split(".");
+        // Format: (action).(room).(author).(text?)
+        const [action, room, author, ...text] = message.split(".");
         if (room)
             switch (action) {
+                // Ping
+                case "p":
+                    return;
                 // User join
                 case "j":
                     return join(ws, room);
@@ -25,7 +28,7 @@ const wsHandler: WebSocketHandler<Rooms> = {
                     return leave(ws, room);
                 // User text
                 case "t":
-                    return txt(ws, room, text.join("."));
+                    return txt(ws, room, author, text.join("."));
             }
 
         // Invalid room name

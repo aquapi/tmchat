@@ -10,10 +10,13 @@ export function leave(ws: WS, room: string) {
     ws.subscribe(room);
 }
 
-export function txt(ws: WS, room: string, message: string) {
-    // Message should not be blank
+export function txt(ws: WS, room: string, author: string, message: string) {
+    if (!author)   
+        author = "Someone";
+
+    // Invalid message
     if (!message)
         return void ws.send("M");
 
-    ws.publish(room, message);
+    ws.publish(room, author + ":" + message);
 }
