@@ -14,7 +14,7 @@ const wsHandler: WebSocketHandler<Rooms> = {
             message = intDecoder.decode(message);
 
         // Format: (action).(room).(text?)
-        const [action, room, text] = message.split(".");
+        const [action, room, ...text] = message.split(".");
         if (room)
             switch (action) {
                 // User join
@@ -25,7 +25,7 @@ const wsHandler: WebSocketHandler<Rooms> = {
                     return leave(ws, room);
                 // User text
                 case "t":
-                    return txt(ws, room, text);
+                    return txt(ws, room, text.join("."));
             }
 
         // Invalid room name

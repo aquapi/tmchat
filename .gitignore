@@ -173,3 +173,7 @@ dist
 yarn.lock
 package-lock.json
 bun.lockb
+
+# Tests
+
+tests
