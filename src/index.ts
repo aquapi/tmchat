@@ -5,12 +5,9 @@ import { WebSocketHandler, file } from "bun";
 const app = new App();
 app.websocket = wsHandler as unknown as WebSocketHandler;
 
-// Home full URL
-const home = app.baseURI + "/home";
-
 app.use(async (request, server) => {
     // Serve index.html
-    if (request.url === home)
+    if (request.url.endsWith("/home"))
         return new Response(file("view/index.html"));
 
     // Try upgrading the request to a WebSocket request
