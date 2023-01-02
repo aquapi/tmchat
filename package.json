@@ -1,0 +1,12 @@
+{
+  "name": "chatws",
+  "module": "./src/index.ts",
+  "type": "module",
+  "devDependencies": {
+    "bun-types": "^0.4.0"
+  },
+  "dependencies": {
+    "@bunsvr/core": "^0.0.8"
+  },
+  "main": "./src/index.ts"
+}
