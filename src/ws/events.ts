@@ -11,8 +11,9 @@ export function leave(ws: WS, room: string) {
 }
 
 export function txt(ws: WS, room: string, author: string, message: string) {
+    // Invalid author
     if (!author)   
-        author = "Someone";
+        return void ws.send("A");
 
     // Invalid message
     if (!message)
