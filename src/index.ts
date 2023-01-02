@@ -3,7 +3,6 @@ import wsHandler from "./ws";
 import { WebSocketHandler } from "bun";
 
 const app = new App();
-app.baseURI = "http://localhost:8080";
 app.websocket = wsHandler as unknown as WebSocketHandler;
 
 // Try upgrading the request to a WebSocket request
