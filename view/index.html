@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: monospace;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        code {
+            background-color: #F6F8FA;
+            padding: 3px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1 id="tmchat">TMChat</h1>
+        <p>Provides temporary chat room API.</p>
+        <p>This project is built based on <a href="https://bunsvr.netlify.app">BunSVR</a>.</p>
+        <h2 id="message">Message</h2>
+        <p>Message format: <code>[action].[room].[message]</code></p>
+        <b>Actions</b>
+        <ul>
+            <li>Join room: <i>j</i></li>
+            <li>Leave room: <i>l</i></li>
+            <li>Send message: <i>t</i></li>
+        </ul>
+        <b>Examples</b>
+        <ul>
+            <li>Join room <code>general</code>: <i>j.general</i></li>
+            <li>Leave room <code>general</code>: <i>l.general</i></li>
+            <li>Send <i>Hello world!</i> in room <code>general</code>: <i>t.general.Hello world!</i></li>
+        </ul>
+    </div>
+</body>
+
+</html>
