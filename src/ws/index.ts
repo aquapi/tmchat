@@ -19,7 +19,7 @@ const wsHandler: WebSocketHandler<Rooms> = {
             switch (action) {
                 // Ping
                 case "p":
-                    return;
+                    return void ws.send("P");
                 // User join
                 case "j":
                     return join(ws, room);
